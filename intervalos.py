@@ -7,7 +7,7 @@ def tabelanormal(confianca):
 
     arquivo = open("Tabela.txt", 'r')
     dados = {}
-    coluna = ['0','0.00', '0.01', '0.02', '0.03', '0.04', '0.05', '0.06', '0.07', '0.08', '0.09']
+    #coluna = ['0','0.00', '0.01', '0.02', '0.03', '0.04', '0.05', '0.06', '0.07', '0.08', '0.09']
     for index, number in enumerate(arquivo):
         linha = number.split(" ")
         linha[-1] = linha[-1].strip()
@@ -17,6 +17,8 @@ def tabelanormal(confianca):
                     aux = (float(linha) + float(coluna[i]))
                 else:
                     dados[linha] = (float(aux) + float(coluna[i]))
+        else:
+            coluna = linha
 
     if confianca in dados:
         zcrit = dados[confianca]
@@ -25,8 +27,7 @@ def tabelanormal(confianca):
 
 
 def tabelastuden(p, gl):
-    coluna = ['0', '0.95', '0.90', '0.80', '0.70', '0.60', '0.50', '0.40', '0.30', '0.20', '0.10', '0.05', '0.02 ',
-            '0.01', '0.001']
+    coluna = ['0', '0.95', '0.90', '0.80', '0.70', '0.60', '0.50', '0.40', '0.30', '0.20', '0.10', '0.05', '0.02 ', '0.01', '0.001']
     arquivo = open("TabelaTStudent.txt", 'r')
     dados = {}
     for index, number in enumerate(arquivo):
